@@ -1,0 +1,53 @@
+{
+  "name": "mcp-starter",
+  "description": "An opinionated starter project for Model Context Protocol (MCP) servers",
+  "author": {
+    "name": "Steven Stavrakis",
+    "email": "steven@stavrak.is",
+    "url": "https://stavrak.is",
+    "github": "https://github.com/StevenStavrakis"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StevenStavrakis/mcp-starter.git"
+  },
+  "module": "main.ts",
+  "type": "module",
+  "bin": {
+    "mcp-starter": "dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "prebuild": "bun scripts/prebuild.ts",
+    "build": "bun build ./src/main.ts --outdir dist --target node && chmod +x dist/main.js",
+    "start": "bun run dist/main.ts",
+    "test": "bun test",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build",
+    "lint": "bunx biome lint --write src",
+    "format": "bunx biome format --write src",
+    "check": "bunx biome check --write src",
+    "release": "standard-version && bun run update-version",
+    "release:minor": "standard-version --release-as minor && bun run update-version",
+    "release:major": "standard-version --release-as major && bun run update-version",
+    "release:patch": "standard-version --release-as patch && bun run update-version",
+    "update-version": "sed -i '' -e 's/export const VERSION = .*/export const VERSION = '\"'$(node -p 'require(\"./package.json\").version')'\"';/' src/main.ts",
+    "create-tool": "bun scripts/create-tool.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/bun": "latest",
+    "standard-version": "^9.5.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.1.1",
+    "@types/json-schema": "^7.0.15",
+    "pretty-js-log": "^1.1.1",
+    "zod": "^3.24.1",
+    "zod-to-json-schema": "^3.24.1"
+  }
+}
