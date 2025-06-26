@@ -47,7 +47,7 @@ const tools = createTools();
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: tools.map((tool) => {
     // biome-ignore lint/correctness/noUnusedVariables: Destructuring to omit handler property
-    const { handler, ...toolWithoutHandler } = tool;
+    const { ...toolWithoutHandler } = tool;
     return toolWithoutHandler;
   }),
 }));
