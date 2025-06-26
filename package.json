@@ -1,21 +1,22 @@
 {
-  "name": "mcp-starter",
-  "description": "An opinionated starter project for Model Context Protocol (MCP) servers",
+  "name": "ultrahuman-mcp",
+  "description": "A Model Context Protocol (MCP) server for fetching health and fitness metrics from the Ultrahuman API, including heart rate, sleep data, steps, temperature, HRV, and more",
   "author": {
-    "name": "Steven Stavrakis",
-    "email": "steven@stavrak.is",
-    "url": "https://stavrak.is",
-    "github": "https://github.com/StevenStavrakis"
+    "name": "Samuele Monasterolo",
+    "email": "smonasterolo2@gmail.com",
+    "url": "https://www.samuelemonasterolo.com/",
+    "github": "https://github.com/Monasterolo21"
   },
+  "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/StevenStavrakis/mcp-starter.git"
+    "url": "https://github.com/Monasterolo21/Ultrahuman-MCP"
   },
   "module": "main.ts",
   "type": "module",
   "bin": {
-    "mcp-starter": "dist/index.js"
+    "ultrahuman-mcp": "dist/main.js"
   },
   "files": [
     "dist"
